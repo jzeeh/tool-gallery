@@ -1,3 +1,4 @@
+Code Robert: 
 library(tidyverse)
 library(janitor)
 library(DataCombine)
@@ -53,7 +54,7 @@ all_df
 # zur leichten Installation:
 # https://cran.r-project.org/web/packages/addinslist/README.html
 install.packages("addinslist")
-# dann siehe  Menüleiste "Addin" > ADDINLIST > Browse R Studio Addin List
+# dann siehe  MenÃ¼leiste "Addin" > ADDINLIST > Browse R Studio Addin List
 # unten angefuehrte Addins einfach installieren und R-Studio neu starten
 
 
@@ -122,7 +123,7 @@ c(spalte1,spalte2,spalte2)
 all_df
 df_to_join
 
-all_df_mit_ergaenzten_infos <- map(.x = all_df, # list object über welches der 'loop' erfolgen soll
+all_df_mit_ergaenzten_infos <- map(.x = all_df, # list object Ã¼ber welches der 'loop' erfolgen soll
                             .f = left_join,
                             y = df_to_join,
                             by = c("a"="a")) # join ueber spalte 'a'
@@ -131,23 +132,23 @@ all_df_mit_ergaenzten_infos
 
 ################################################
 ### zu bestimmten dataframes des listobjekts sollen daten hinzufuegt werden
-# in diesem Fall wird der df_to_join nur zu df3 hinzugefuegt, weil dieser dataframe die Spalte "c" enthält
+# in diesem Fall wird der df_to_join nur zu df3 hinzugefuegt, weil dieser dataframe die Spalte "c" enthÃ¤lt
 
 # workaround mit "map_if"
-(nur_mit_ergaenzten_infos <- map_if(.x = all_df,# list object mit dataframes über welches der 'loop' erfolgen soll 
-                               .p =  ~"c" %in% colnames(.), # prüft, ob  der jeweilige dataframe eine bestimmte Spalte enthaelt... 
+(nur_mit_ergaenzten_infos <- map_if(.x = all_df,# list object mit dataframes Ã¼ber welches der 'loop' erfolgen soll 
+                               .p =  ~"c" %in% colnames(.), # prÃ¼ft, ob  der jeweilige dataframe eine bestimmte Spalte enthaelt... 
                                # wenn Bedingung zutrifft ...
                                .f = left_join, #... soll der left_Join durchgfuehrt werden
                                y = df_to_join,
-                               by = c("a"="a"))) # über die Spalte "a"
+                               by = c("a"="a"))) # Ã¼ber die Spalte "a"
 
 
 # workaround mit "map_at"
-(nur_mit_ergaenzten_infos2 <- map_at(.x = all_df,# list object mit dataframes über welches der 'loop' erfolgen soll 
+(nur_mit_ergaenzten_infos2 <- map_at(.x = all_df,# list object mit dataframes Ã¼ber welches der 'loop' erfolgen soll 
                                     .at = c("df2","df4"), # nur bestimmte dfs ansteuern
                                     .f = left_join, #... soll der left_Join durchgfuehrt werden
                                     y = df_to_join,
-                                    by = c("a"="a"))) # über die Spalte "a"
+                                    by = c("a"="a"))) # Ã¼ber die Spalte "a"
 
 
 ################################################
