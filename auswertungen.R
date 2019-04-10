@@ -1,3 +1,5 @@
+cccddd
+
 Mittelwert_Studienmitte<-rowSums(mitte_neu[10:13],na.rm = TRUE)/ rowSums(is.na(mitte_neu[,10:13])==FALSE)
 
 ectsunderwerb<- cbind(Mittelwert_Studienmitte,mitte_neu$X25a)
@@ -83,7 +85,7 @@ Entscheidung_Studium <- beginner_neu$X15
 summary(lm(beginner_neu$MW.ECTS~Entscheidung_Studium ))
 
 ### studienberechtigung
-Berecht <- 0 ### Dummy Studienberechtigungsprüfung, für alle anderen auch bilden?
+Berecht <- 0 ### Dummy Studienberechtigungspr?fung, f?r alle anderen auch bilden?
 Berecht[beginner$X5==7] <- 1 
 Berecht[beginner$X5!=7] <- 0
 t.test(Mittelwert_Studienbeginn~Berecht)
@@ -97,7 +99,7 @@ Erwerbsstunden<-ectsunderwerb[,2]
 
 summary(lm(Mittelwert_Studienbeginn~Erwerbsstunden ))
 
-## berufliche gründe
+## berufliche gr?nde
 F1gr <- cbind(beginner$X21b,beginner$X21c,beginner$X21d,beginner$X21e,beginner$X21g)
 F1gr <-rowSums(F1gr[,1:5],na.rm = TRUE)/ rowSums(is.na(F1gr[,1:5])==FALSE)
 summary(lm(Mittelwert_Studienbeginn~F1gr ))
@@ -107,7 +109,7 @@ F2gr <- cbind(beginner$X21t,beginner$X21u)
 F2gr <-rowSums(F2gr[,1:2],na.rm = TRUE)/ rowSums(is.na(F2gr[,1:2])==FALSE)
 summary(lm(Mittelwert_Studienbeginn~F2gr ))
 
-## unterstützung
+## unterst?tzung
 F1 <- cbind(beginner$X32c ,beginner$X32f,beginner$X32g)
 F1 <-rowSums(F1[,1:3],na.rm = TRUE)/ rowSums(is.na(F1[,1:3])==FALSE)
 summary(lm(Mittelwert_Studienbeginn~F1 ))
@@ -161,7 +163,7 @@ angs1 <- mitte_neu$X17c
 angs2 <- mitte_neu$X17e
 
 
-Pflichtschule <- 0 ### Dummy Pflichtschle, für alle anderen auch bilden?
+Pflichtschule <- 0 ### Dummy Pflichtschle, f?r alle anderen auch bilden?
 Pflichtschule[mitte_neu$X31b==1] <- 1 
 Pflichtschule[mitte_neu$X31b!=1] <- 0
 t.test(Mittelwert_Studienbeginn~Berecht)
